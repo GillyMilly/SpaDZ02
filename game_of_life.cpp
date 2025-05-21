@@ -27,12 +27,12 @@ bool game_of_life::celija_zauzeta(int i, int j) {
     return _generacija[i][j];
 }
 
-//Raèunanje novih generacija
+//Racunanje novih generacija
 void game_of_life::sljedeca_generacija() {
     for (unsigned int i = 0; i < REDAKA; i++) {
         for (unsigned int j = 0; j < STUPACA; j++) {
             int susjedi = 0;
-            //Gleda žive æelije (i, j)
+            //Gleda zive celije (i, j)
             for (int di = -1; di <= 1; di++) {
                 for (int dj = -1; dj <= 1; dj++) {
                     if (di == 0 && dj == 0) continue;
@@ -41,11 +41,11 @@ void game_of_life::sljedeca_generacija() {
             }
 
             if (_generacija[i][j]) {
-                //Živa æelija preživljava ako ima 2 ili 3 susjeda
+                //Ziva celija prezivljava ako ima 2 ili 3 susjeda
                 _sljedeca_generacija[i][j] = (susjedi == 2 || susjedi == 3);
             }
             else {
-                //Mrtva æelija se može oživiti ako ima toèno 3 susjeda
+                //Mrtva celija se moze oziviti ako ima tocno 3 susjeda
                 _sljedeca_generacija[i][j] = (susjedi == 3);
             }
         }
